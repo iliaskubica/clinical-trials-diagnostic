@@ -24,7 +24,27 @@ Day 2 - build the data fetch script, including a genuinely new concept: cursor-b
 
 ---
 
-## Day 2 - [Title]
+## Day 2 - Pagination and Nested Data Extraction
+**Date:** 16 September 2026
+
+**What I did:**
+Built the data fetch script for the second project - used a while loop with cursor-based pagination (nextPageToken) to pull real oncology trial data from ClinicalTrials.gov, a genuinely new pattern compared to the single-request pull in the first project. Initially scoped too broadly ("cancer", all time) and had to narrow to breast cancer trials completed since 2019 after watching the count climb past 6,000. Wrote extraction code to pull specific fields out of the deeply nested API response into a clean 10-column table, and saved the raw data to a local JSON file so future runs don't need to re-fetch from the API every time.
+
+**Why I made that choice:**
+Chose to narrow the scope live, mid-session, once the trial count made it clear "cancer" broadly was too large to be a manageable, finishable dataset - same scope-creep risk flagged in the roadmap on Day 1, caught in practice rather than just in planning. Saved the raw data locally because re-fetching over 4,000 trials across 42 pages every single run would be slow and unnecessarily repetitive load on a public API.
+
+**What I learned:**
+The difference between a for loop (fixed number of repeats) and a while loop (repeats until a condition becomes false) - pagination is a natural while loop use case since the number of pages isn't known in advance. How to safely navigate deeply nested dictionaries using chained .get() calls with defaults, so missing fields don't crash the script. Confirmed the ethics decision from the roadmap in practice - saw real investigator names in the raw data (contactsLocationsModule) and deliberately excluded that field from extraction.
+
+**What confused me / what I'd do differently:**
+Wasn't immediately sure where the pagination loop actually ended in the code, since indentation is the only visual signal of where a block stops - needed it pointed out explicitly with the surrounding code shown. Also hit a real Git limit: the raw trial data saved as JSON was 139MB, over GitHub's 100MB file size cap, and the push was rejected. Fixed it properly rather than just deleting the file - added a .gitignore rule to exclude data/raw/*.json going forward, untracked the file with git rm --cached (keeping it locally, just not pushed), and amended the commit since it hadn't been shared to GitHub yet. Good real lesson: large generated data files generally shouldn't be committed to Git at all, similar to why venv/ is already excluded.
+
+**Next up:**
+Day 3 - review the extracted data properly, check for missing/messy values, and start designing how this splits into multiple related tables (trials, sponsors, locations) for real SQL joins.
+
+---
+
+## Day 3 - [Title]
 **Date:**
 
 **What I did:**
