@@ -13,3 +13,6 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Extracted key fields from deeply nested API responses into a clean 10-column table
 - Saved raw data locally to avoid re-fetching from the API on every run
 - Fixed a Git large-file issue (139MB JSON exceeded GitHub's 100MB limit) via .gitignore and git rm --cached
+
+## Day 3 - Trial status breakdown
+- Added a quick status breakdown: 3,511 completed vs 626 terminated trials (~85/15 split)

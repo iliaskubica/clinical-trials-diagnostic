@@ -44,7 +44,27 @@ Day 3 - review the extracted data properly, check for missing/messy values, and 
 
 ---
 
-## Day 3 - [Title]
+## Day 3 - Trial Status Breakdown
+**Date:** [today's date]
+
+**What I did:**
+Had an assessment today and was low on energy, but added one small, real piece of code: a status breakdown using .value_counts() on the trials table. Found 3,511 completed trials vs 626 terminated, roughly an 85/15 split.
+
+**Why I made that choice:**
+Wanted to keep making genuine progress even on a low-energy day, rather than a placeholder entry or skipping entirely - one small real result is worth more than a token log with nothing behind it.
+
+**What I learned:**
+.value_counts() counts how many times each unique value appears in a column - a quick, useful way to get an overview of a categorical column before deeper analysis. This completed/terminated split is a real baseline worth remembering for later - useful for spotting which sponsors have a disproportionately high termination rate compared to it.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 4 - review the extracted trial data more fully for gaps/messiness, start designing the relational table structure (trials, sponsors, locations) for real SQL joins.
+
+---
+
+## Day 4 - [Title]
 **Date:**
 
 **What I did:**
