@@ -69,3 +69,6 @@ for trial in all_trials:
 trials_df = pd.DataFrame(records)
 print(f"\nExtracted {len(trials_df)} trials into a clean table")
 print(trials_df.head())
+
+print("\nTrial status breakdown:")
+print(trials_df["status"].value_counts())
