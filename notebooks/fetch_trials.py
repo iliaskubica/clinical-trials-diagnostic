@@ -31,7 +31,7 @@ while True:
     params["pageToken"] = next_token
     time.sleep(0.5)
 
-    import json
+import json
 with open("data/raw/trials_raw.json", "w") as f:
     json.dump(all_trials, f)
 print("Saved raw trial data to data/raw/trials_raw.json")
@@ -66,9 +66,31 @@ for trial in all_trials:
         "primary_country": first_country,
     })
 
+location_records = []
+
+for trial in all_trials:
+    nct_id = trial.get("protocolSection", {}).get("identificationModule", {}).get("nctId")
+    locations = trial.get("protocolSection", {}).get("contactsLocationsModule", {}).get("locations", [])
+    
+    for location in locations:
+        location_records.append({
+            "nct_id": nct_id,
+            "country": location.get("country"),
+        })
+
+locations_df = pd.DataFrame(location_records)
+print(f"\nExtracted {len(locations_df)} trial-location rows from {len(all_trials)} trials")
+print(locations_df.head(10))
+
 trials_df = pd.DataFrame(records)
 print(f"\nExtracted {len(trials_df)} trials into a clean table")
 print(trials_df.head())
 
 print("\nTrial status breakdown:")
 print(trials_df["status"].value_counts())
+
+print("\nMissing values per column:")
+print(trials_df.isnull().sum())
+
+print("\nUnique phase values:")
+print(trials_df["phase"].value_counts(dropna=False))
