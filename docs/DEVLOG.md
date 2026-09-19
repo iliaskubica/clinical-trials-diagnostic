@@ -64,7 +64,27 @@ Day 4 - review the extracted trial data more fully for gaps/messiness, start des
 
 ---
 
-## Day 4 - [Title]
+## Day 4 - Building Relational Structure
+**Date:** 19 September 2026
+
+**What I did:**
+Checked for missing values across the trials table and found two genuinely different kinds of gaps in the phase column - "NA" (1,503 trials, meaning phase genuinely doesn't apply, e.g. behavioral studies) versus real NaN (911 trials, genuinely incomplete data). Kept both as distinct categories rather than treating them the same. Built a second table, locations_df, using a nested loop to extract every location per trial rather than just the first one - resulting in 53,031 trial-location rows from 4,143 trials, confirming many trials run across multiple countries.
+
+**Why I made that choice:**
+Conflating "not applicable" with "genuinely missing" would have been a real analytical mistake - they mean different things and should be handled differently in any later analysis. Built the locations table specifically to create genuine one-to-many relational structure (one trial, many locations), which is exactly what's needed to write real SQL joins rather than working with a single flat table like the first project.
+
+**What I learned:**
+How a nested loop works - a for loop inside another for loop, where the inner loop runs completely through its own list for every single pass of the outer loop. Caught a real indentation bug myself before running the code (a JSON-saving block that was mismatched between inside and outside the while loop), rather than needing it flagged externally first.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 5 - load both tables into a SQL database and write the first real join between trials and locations.
+
+---
+
+## Day 5 - [Title]
 **Date:**
 
 **What I did:**

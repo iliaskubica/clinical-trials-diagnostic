@@ -16,3 +16,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 
 ## Day 3 - Trial status breakdown
 - Added a quick status breakdown: 3,511 completed vs 626 terminated trials (~85/15 split)
+
+## Day 4 - Relational structure built
+- Distinguished genuine missing data from "not applicable" in the phase column
+- Built a second table (locations) using a nested loop - 53,031 trial-location rows from 4,143 trials
+- Confirmed real one-to-many relational structure, ready for SQL joins
