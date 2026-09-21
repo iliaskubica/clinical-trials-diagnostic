@@ -1,6 +1,8 @@
-import requests
-import pandas as pd
+import json
 import time
+
+import pandas as pd
+import requests
 
 BASE_URL = "https://clinicaltrials.gov/api/v2/studies"
 
@@ -31,7 +33,6 @@ while True:
     params["pageToken"] = next_token
     time.sleep(0.5)
 
-import json
 with open("data/raw/trials_raw.json", "w") as f:
     json.dump(all_trials, f)
 print("Saved raw trial data to data/raw/trials_raw.json")
