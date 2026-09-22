@@ -1,4 +1,5 @@
 import json
+import sqlite3
 import time
 
 import pandas as pd
@@ -95,3 +96,12 @@ print(trials_df.isnull().sum())
 
 print("\nUnique phase values:")
 print(trials_df["phase"].value_counts(dropna=False))
+
+conn = sqlite3.connect("data/processed/trials.db")
+
+trials_df.to_sql("trials", conn, if_exists="replace", index=False)
+locations_df.to_sql("locations", conn, if_exists="replace", index=False)
+
+print("\nBoth tables loaded into SQLite database: data/processed/trials.db")
+
+conn.close()
