@@ -84,19 +84,28 @@ Day 5 - load both tables into a SQL database and write the first real join betwe
 
 ---
 
-## Day 5 - [Title]
-**Date:**
+## Day 5 - Loading the Data into SQL
+
+**Date:** 22 September 2026
 
 **What I did:**
 
+Loaded both the trials and locations tables into a SQLite database using Python's sqlite3 library and pandas .to_sql() method. Added sqlite3 to the standard-library imports alongside json and time, then connected to a new trials.db file and wrote trials_df and locations_df as two separate SQL tables. Re-ran the full extraction successfully, with the final dataset containing 4,148 trials and 53,043 trial-location rows. The existing status breakdown also updated slightly to 3,521 completed vs 627 terminated trials.
 
 **Why I made that choice:**
 
+The whole point of building the locations table on Day 4 was to create a genuine relationship between the data rather than keeping everything as one flat dataframe. Loading both tables into the same SQLite database means the trial-level data and location-level data can now be queried together using SQL, which is the actual purpose of creating the relational structure in the first place.
 
 **What I learned:**
 
+How sqlite3 connects Python to a local SQLite database, and how .to_sql() takes a pandas dataframe and creates a SQL table from it. Also learned a small but useful Python convention around imports - standard-library modules like json, sqlite3 and time are grouped separately from third-party packages like pandas and requests. More importantly, this was the first time the project moved from manipulating data in Python to actually storing related tables in a SQL database.
 
 **What confused me / what I'd do differently:**
 
+The actual sqlite3 connection and .to_sql() code was mostly a new pattern, so I needed the individual parts explained rather than immediately understanding what was happening. The distinction between the pandas dataframes and the SQL tables is also something I'm still getting used to - they contain the same underlying data, but now exist in different stages of the workflow. I also hadn't written the JOIN yet, so the next step is to actually use the relationship between the two tables rather than just creating it.
 
 **Next up:**
+
+Day 6 - write the first real SQL JOIN between the trials and locations tables, then start using the relational structure to answer an actual question about the clinical trial data.
+
+---

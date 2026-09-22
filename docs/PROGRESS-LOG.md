@@ -21,3 +21,10 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Distinguished genuine missing data from "not applicable" in the phase column
 - Built a second table (locations) using a nested loop - 53,031 trial-location rows from 4,143 trials
 - Confirmed real one-to-many relational structure, ready for SQL joins
+
+## Day 5 - SQLite database setup
+
+- Added sqlite3 and connected the project to a local SQLite database
+- Loaded both trials and locations dataframes into separate SQL tables using .to_sql()
+- Successfully reran the full extraction and loaded 4,148 trials and 53,043 trial-location rows into the database
+- Moved the project from Python-only dataframe analysis into a relational SQL database, ready for the first real JOIN
