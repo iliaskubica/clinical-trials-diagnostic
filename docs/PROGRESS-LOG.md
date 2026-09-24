@@ -28,3 +28,9 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Loaded both trials and locations dataframes into separate SQL tables using .to_sql()
 - Successfully reran the full extraction and loaded 4,148 trials and 53,043 trial-location rows into the database
 - Moved the project from Python-only dataframe analysis into a relational SQL database, ready for the first real JOIN
+
+## Day 6 - First real SQL joins
+- Wrote two JOINs connecting trials and locations tables
+- Found US dominates trial volume by a wide margin (28,230 vs Spain's 2,801)
+- Found Australia has the highest termination rate (24.1%) among high-volume countries
+- Learned CASE WHEN, SUM for conditional counting, and HAVING for filtering aggregated groups

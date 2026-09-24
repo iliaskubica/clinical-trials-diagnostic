@@ -104,8 +104,39 @@ How sqlite3 connects Python to a local SQLite database, and how .to_sql() takes 
 
 The actual sqlite3 connection and .to_sql() code was mostly a new pattern, so I needed the individual parts explained rather than immediately understanding what was happening. The distinction between the pandas dataframes and the SQL tables is also something I'm still getting used to - they contain the same underlying data, but now exist in different stages of the workflow. I also hadn't written the JOIN yet, so the next step is to actually use the relationship between the two tables rather than just creating it.
 
-**Next up:**
+## Day 6 - First Real SQL Joins
+**Date:** 24 September 2026
 
-Day 6 - write the first real SQL JOIN between the trials and locations tables, then start using the relational structure to answer an actual question about the clinical trial data.
+**What I did:**
+Wrote the first two real SQL JOINs of the project, connecting the trials and locations tables via nct_id. The first counted trials per country - the US dominates by a wide margin (28,230 trial-location entries vs Spain's 2,801, the next highest). The second calculated termination rate by country using conditional aggregation (CASE WHEN, SUM, HAVING), filtered to countries with 50+ trials to keep the rate meaningful. Australia stood out with the highest termination rate (24.1%) among countries with substantial trial volume, notably higher than the UK (13.2%) or Canada (13.8%).
+
+**Why I made that choice:**
+This is the entire reason the second project exists - moving from a flat, single-table dataset (project one) to genuinely relational data that requires real joins to answer meaningful questions. Filtered to countries with a minimum trial count using HAVING specifically to avoid a small-sample country showing a misleadingly extreme rate (e.g. 1 trial that terminated showing 100%).
+
+**What I learned:**
+The actual JOIN syntax - matching rows across two tables on a shared column (nct_id) rather than treating them as separate. CASE WHEN is SQL's version of if/else, letting you turn a category into a countable 1 or 0 inside an aggregation. HAVING filters groups after aggregation, which is different from WHERE, which filters individual rows before grouping - a genuinely important distinction I hadn't needed before.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 7 - explore the Australia termination-rate finding further, and start looking at sponsor-level patterns (e.g. which sponsors have the highest completion vs termination rates) using window functions.
 
 ---
+
+## Day 7 - [Title]
+**Date:**
+
+**What I did:**
+
+
+**Why I made that choice:**
+
+
+**What I learned:**
+
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
