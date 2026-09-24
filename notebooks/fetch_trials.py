@@ -119,4 +119,22 @@ result = pd.read_sql(query, conn)
 print("\nTop 10 countries by number of trials:")
 print(result)
 
+query2 = """
+SELECT 
+    locations.country,
+    COUNT(*) AS total_trials,
+    SUM(CASE WHEN trials.status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM locations
+JOIN trials ON locations.nct_id = trials.nct_id
+GROUP BY locations.country
+HAVING total_trials >= 50
+ORDER BY terminated_trials DESC
+LIMIT 10
+"""
+
+result2 = pd.read_sql(query2, conn)
+result2["termination_rate"] = (result2["terminated_trials"] / result2["total_trials"] * 100).round(1)
+print("\nTermination rate by country (countries with 50+ trials):")
+print(result2)
+
 conn.close()
