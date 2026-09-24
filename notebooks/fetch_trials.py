@@ -104,4 +104,19 @@ locations_df.to_sql("locations", conn, if_exists="replace", index=False)
 
 print("\nBoth tables loaded into SQLite database: data/processed/trials.db")
 
+conn = sqlite3.connect("data/processed/trials.db")
+
+query = """
+SELECT locations.country, COUNT(*) AS trial_count
+FROM locations
+JOIN trials ON locations.nct_id = trials.nct_id
+GROUP BY locations.country
+ORDER BY trial_count DESC
+LIMIT 10
+"""
+
+result = pd.read_sql(query, conn)
+print("\nTop 10 countries by number of trials:")
+print(result)
+
 conn.close()
