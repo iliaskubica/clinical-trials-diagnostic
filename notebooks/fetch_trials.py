@@ -137,4 +137,21 @@ result2["termination_rate"] = (result2["terminated_trials"] / result2["total_tri
 print("\nTermination rate by country (countries with 50+ trials):")
 print(result2)
 
+query3 = """
+SELECT 
+    sponsor_name,
+    COUNT(*) AS total_trials,
+    SUM(CASE WHEN status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM trials
+GROUP BY sponsor_name
+HAVING total_trials >= 10
+ORDER BY total_trials DESC
+LIMIT 10
+"""
+
+result3 = pd.read_sql(query3, conn)
+result3["termination_rate"] = (result3["terminated_trials"] / result3["total_trials"] * 100).round(1)
+print("\nTop 10 sponsors by trial volume, with termination rate:")
+print(result3)
+
 conn.close()
