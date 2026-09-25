@@ -34,3 +34,11 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Found US dominates trial volume by a wide margin (28,230 vs Spain's 2,801)
 - Found Australia has the highest termination rate (24.1%) among high-volume countries
 - Learned CASE WHEN, SUM for conditional counting, and HAVING for filtering aggregated groups
+
+## Day 7 - Sponsor-level trial analysis
+
+- Added a SQL aggregation to calculate trial volume and termination rate by sponsor
+- Filtered to sponsors with at least 10 trials and returned the top 10 sponsors by trial volume
+- Used COUNT(), SUM(CASE WHEN), GROUP BY, HAVING and ORDER BY in a single analytical query
+- Calculated termination rates in pandas using the SQL result
+- Confirmed the analysis did not require a JOIN because sponsor and status are both stored in the trials table

@@ -124,19 +124,26 @@ Day 7 - explore the Australia termination-rate finding further, and start lookin
 
 ---
 
-## Day 7 - [Title]
-**Date:**
+## Day 7 - Sponsor-Level Trial Analysis
+
+**Date:** 25 September 2026
 
 **What I did:**
 
+Added a small sponsor-level analysis using SQL to group trials by sponsor, count total trials, count terminated trials, and calculate a termination rate. Filtered to sponsors with at least 10 trials and returned the top 10 by trial volume. The query was run through pandas using read_sql(), with the final result showing sponsor-level trial volume alongside termination rates - for example, Novartis Pharmaceuticals had 75 trials with a 21.3% termination rate, while Memorial Sloan Kettering Cancer Center had 66 trials with a 3.0% termination rate.
 
 **Why I made that choice:**
 
+Wanted to make a small amount of genuine progress rather than forcing a large new feature just to get another green square. Sponsor-level performance is also directly relevant to the eventual diagnostic because it moves beyond simple overall counts into comparing trial outcomes across organisations. Kept the minimum at 10 trials so the rates aren't dominated by sponsors with only one or two trials.
 
 **What I learned:**
 
+How SQL can combine aggregation with conditional logic - COUNT(*) gives total trials, while SUM(CASE WHEN ... THEN 1 ELSE 0 END) can count only the trials matching a specific condition such as TERMINATED. Also learned that not every useful query needs a JOIN - this analysis only uses sponsor and status, which already exist in the trials table, so adding a JOIN would have been unnecessary. Used pandas read_sql() to bring the SQL result back into a dataframe and then calculated the percentage termination rate.
 
 **What confused me / what I'd do differently:**
 
+The biggest thing to understand was the distinction between a query that genuinely needs a JOIN and one that doesn't. Because the project is specifically designed around relational SQL, there is a temptation to use the second table just because it exists, but that would make the query more complicated without adding anything useful. The sponsor results also showed why rates need to be interpreted alongside trial volume - a percentage on a small number of trials can be much less informative than one based on dozens of trials.
 
 **Next up:**
+
+Continue building the diagnostic with another targeted SQL analysis, ideally using the relational structure to answer a question that genuinely requires joining the trials and locations tables.
