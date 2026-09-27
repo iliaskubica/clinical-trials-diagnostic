@@ -171,4 +171,18 @@ result4 = pd.read_sql(query4, conn)
 print("\nAverage trial duration by country (50+ trials):")
 print(result4)
 
+query5 = """
+SELECT sponsor_name, sponsor_class, COUNT(*) AS trial_count,
+       RANK() OVER (PARTITION BY sponsor_class ORDER BY COUNT(*) DESC) AS rank_in_class
+FROM trials
+GROUP BY sponsor_name, sponsor_class
+HAVING trial_count >= 10
+ORDER BY sponsor_class, rank_in_class
+LIMIT 20
+"""
+
+result5 = pd.read_sql(query5, conn)
+print("\nTop sponsors ranked within their sponsor class:")
+print(result5)
+
 conn.close()
