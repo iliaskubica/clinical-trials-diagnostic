@@ -147,3 +147,40 @@ The biggest thing to understand was the distinction between a query that genuine
 **Next up:**
 
 Continue building the diagnostic with another targeted SQL analysis, ideally using the relational structure to answer a question that genuinely requires joining the trials and locations tables.
+
+## Day 8 - Date Arithmetic and Window Functions
+**Date:** 27 September 2026
+
+**What I did:**
+Added two genuinely new SQL patterns. First, calculated average trial duration by country using date arithmetic (julianday() to convert dates into numbers so they can be subtracted) - Ireland had the longest average duration among high-volume countries at over 3,300 days (roughly 9 years), followed by South Africa and the US. Second, wrote the project's first window function - RANK() OVER (PARTITION BY sponsor_class ORDER BY trial_count DESC) - ranking sponsors by trial volume within their own category (industry, NIH, academic/other, network) rather than one global ranking.
+
+**Why I made that choice:**
+Date arithmetic and window functions were both explicitly named as goals in the original Day 1 roadmap for this project - the whole reason this project uses relational, multi-table data rather than a flat file like the first project. A window function specifically lets you rank or compare rows without collapsing them into a single summary row per group, which a plain GROUP BY can't do.
+
+**What I learned:**
+julianday() converts a date into a single number, making subtraction between two dates possible. PARTITION BY splits data into separate groups for ranking purposes - similar in spirit to GROUP BY, but instead of collapsing rows into one summary per group, every original row is kept, just with a rank added. Also observed RANK() correctly handling ties - two sponsors tied at rank 3 both received rank 3, with the next sponsor skipping to rank 5 rather than getting rank 4, which is standard, correct ranking behaviour rather than a bug.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 9 - use the ranking to filter down to just the top 3 sponsors per class (a common window-function follow-up pattern), then start planning the Power BI dashboard for this project.
+
+---
+
+## Day 9 - [Title]
+**Date:**
+
+**What I did:**
+
+
+**Why I made that choice:**
+
+
+**What I learned:**
+
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**

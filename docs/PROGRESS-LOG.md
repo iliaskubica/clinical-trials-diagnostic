@@ -42,3 +42,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Used COUNT(), SUM(CASE WHEN), GROUP BY, HAVING and ORDER BY in a single analytical query
 - Calculated termination rates in pandas using the SQL result
 - Confirmed the analysis did not require a JOIN because sponsor and status are both stored in the trials table
+
+## Day 8 - Date arithmetic and window functions
+- Calculated average trial duration by country using julianday() date arithmetic (Ireland longest at 3,300+ days)
+- Wrote the project's first window function, ranking sponsors within their class using RANK() OVER (PARTITION BY ...)
+- Completed every SQL goal from the original roadmap: joins, conditional aggregation, date arithmetic, window functions
