@@ -154,4 +154,21 @@ result3["termination_rate"] = (result3["terminated_trials"] / result3["total_tri
 print("\nTop 10 sponsors by trial volume, with termination rate:")
 print(result3)
 
+query4 = """
+SELECT locations.country,
+       AVG(julianday(trials.completion_date) - julianday(trials.start_date)) AS avg_duration_days,
+       COUNT(*) AS trial_count
+FROM locations
+JOIN trials ON locations.nct_id = trials.nct_id
+WHERE trials.completion_date IS NOT NULL AND trials.start_date IS NOT NULL
+GROUP BY locations.country
+HAVING trial_count >= 50
+ORDER BY avg_duration_days DESC
+LIMIT 10
+"""
+
+result4 = pd.read_sql(query4, conn)
+print("\nAverage trial duration by country (50+ trials):")
+print(result4)
+
 conn.close()
