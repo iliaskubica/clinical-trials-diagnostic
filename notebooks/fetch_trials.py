@@ -185,4 +185,21 @@ result5 = pd.read_sql(query5, conn)
 print("\nTop sponsors ranked within their sponsor class:")
 print(result5)
 
+query6 = """
+SELECT *
+FROM (
+    SELECT sponsor_name, sponsor_class, COUNT(*) AS trial_count,
+           RANK() OVER (PARTITION BY sponsor_class ORDER BY COUNT(*) DESC) AS rank_in_class
+    FROM trials
+    GROUP BY sponsor_name, sponsor_class
+    HAVING trial_count >= 10
+) AS ranked_sponsors
+WHERE rank_in_class <= 3
+ORDER BY sponsor_class, rank_in_class
+"""
+
+result6 = pd.read_sql(query6, conn)
+print("\nTop 3 sponsors per class:")
+print(result6)
+
 conn.close()
