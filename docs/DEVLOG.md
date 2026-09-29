@@ -168,7 +168,27 @@ Day 9 - use the ranking to filter down to just the top 3 sponsors per class (a c
 
 ---
 
-## Day 9 - [Title]
+## Day 9 - Subqueries and Filtering Window Functions
+**Date:** 29 September 2026
+
+**What I did:**
+Learned and used subqueries to filter the results of yesterday's window function - wrapped the sponsor ranking query inside another query so WHERE rank_in_class <= 3 could actually be applied, since window function results can't be filtered directly in the same query they're calculated in. Result correctly kept both tied sponsors at rank 3 (AstraZeneca and Hoffmann-La Roche), rather than arbitrarily cutting one.
+
+**Why I made that choice:**
+This is a natural, common follow-up to yesterday's ranking - having a rank column is only useful if you can then filter on it, and a subquery is the standard way to do that in SQL.
+
+**What I learned:**
+A subquery is a query used as input to another query - SQL runs the inner one first and treats its result like a temporary table for the outer query to filter or work with further. This exists specifically because WHERE normally runs before window functions are calculated, so you can't filter on a window function's output in the same step it's created.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 10 - start planning and building the Power BI dashboard for this project: trial volume by country, termination rate comparison, and sponsor ranking visuals.
+
+---
+
+## Day 10 - [Title]
 **Date:**
 
 **What I did:**

@@ -47,3 +47,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Calculated average trial duration by country using julianday() date arithmetic (Ireland longest at 3,300+ days)
 - Wrote the project's first window function, ranking sponsors within their class using RANK() OVER (PARTITION BY ...)
 - Completed every SQL goal from the original roadmap: joins, conditional aggregation, date arithmetic, window functions
+
+## Day 9 - Subqueries filtering window functions
+- Learned subqueries and used one to filter yesterday's sponsor ranking to top 3 per class
+- Correctly preserved tied ranks rather than arbitrarily cutting one
+- Completed full SQL skill set for this project: joins, conditional aggregation, date arithmetic, window functions, subqueries
