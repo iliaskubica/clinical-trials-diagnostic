@@ -52,3 +52,7 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Learned subqueries and used one to filter yesterday's sponsor ranking to top 3 per class
 - Correctly preserved tied ranks rather than arbitrarily cutting one
 - Completed full SQL skill set for this project: joins, conditional aggregation, date arithmetic, window functions, subqueries
+
+## Day 10 - Country summary export
+- Exported country-level termination rate data to CSV for Power BI
+- Caught and fixed a silent unsaved-file issue before it was pushed

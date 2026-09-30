@@ -188,7 +188,27 @@ Day 10 - start planning and building the Power BI dashboard for this project: tr
 
 ---
 
-## Day 10 - [Title]
+## Day 10 - Country Summary Export
+**Date:** 30 September 2026
+
+**What I did:**
+Exported the country-level termination rate data (result2) to a clean CSV for Power BI. Hit the same "empty commit" issue as before - the first run happened before the code was actually saved, so the commit showed 0 real changes. Confirmed the fix by checking the terminal output directly for the "Saved country summary..." confirmation line before trusting the commit.
+
+**Why I made that choice:**
+Starting the dashboard at the country level first, then narrowing to sponsors next, rather than building everything at once - same macro-to-micro approach used in the first project's dashboard planning.
+
+**What I learned:**
+Reinforced a habit that's now paying off - checking the actual terminal output for a specific expected line, rather than assuming a run worked just because it didn't error, catches silent problems like an unsaved file before they get pushed.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 11 - import country_trial_summary.csv into Power BI and build the first chart for this project's dashboard.
+
+---
+
+## Day 11 - [Title]
 **Date:**
 
 **What I did:**
