@@ -137,6 +137,9 @@ result2["termination_rate"] = (result2["terminated_trials"] / result2["total_tri
 print("\nTermination rate by country (countries with 50+ trials):")
 print(result2)
 
+result2.to_csv("data/processed/country_trial_summary.csv", index=False)
+print("\nSaved country summary for Power BI: data/processed/country_trial_summary.csv")
+
 query3 = """
 SELECT 
     sponsor_name,
