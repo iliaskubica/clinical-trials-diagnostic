@@ -18,9 +18,9 @@ clinical-trials-diagnostic/
 └── docs/ # Findings briefing, methodology notes, dev diary
 
 
-## Tools
+**## Tools**
 
-SQL (joins, window functions, subqueries) · Python (pandas, matplotlib) · Power BI
+SQL (joins, aggregations, window functions, subqueries) · Python (pandas, matplotlib) · Power BI
 
 ## Data & Ethics Note
 
