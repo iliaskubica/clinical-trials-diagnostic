@@ -56,3 +56,7 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 ## Day 10 - Country summary export
 - Exported country-level termination rate data to CSV for Power BI
 - Caught and fixed a silent unsaved-file issue before it was pushed
+
+## Day 11 - First chart, handled US outlier
+- Built first bar chart (trials by country), filtered out US outlier using a condition-based filter
+- Learned static vs condition-based filtering tradeoffs

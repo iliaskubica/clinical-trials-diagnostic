@@ -208,7 +208,27 @@ Day 11 - import country_trial_summary.csv into Power BI and build the first char
 
 ---
 
-## Day 11 - [Title]
+## Day 11 - First Chart and the US Outlier Problem
+**Date:** 2 October 2026
+
+**What I did:**
+Imported country_trial_summary.csv into Power BI and built the first bar chart (total trials by country). The US dwarfed every other country, making the chart unreadable. Filtered it out using an "is not" condition rather than manually deselecting it from a list, since a condition-based filter automatically applies to future data, while a manual selection would silently miss new countries added later.
+
+**Why I made that choice:**
+Log scale, which worked well for the scatter plot in the first project, isn't appropriate for a bar chart, since bar length is meant to be read literally and a log scale on bars risks misleading a viewer who doesn't check the axis. Decided the standard, honest approach is to separate the outlier into its own callout rather than hide or distort it.
+
+**What I learned:**
+The difference between a static filter (manually selecting which values to include, which can silently miss new data later) and a condition-based filter (a rule like "is not X", which automatically applies to any future data). Good general practice for any dashboard that gets refreshed over time, even if less critical for a one-off snapshot like this project.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 12 - add a Card visual showing the US total separately, then continue building out the country-level chart.
+
+---
+
+## Day 12 - [Title]
 **Date:**
 
 **What I did:**
