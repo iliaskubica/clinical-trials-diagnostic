@@ -60,3 +60,7 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 ## Day 11 - First chart, handled US outlier
 - Built first bar chart (trials by country), filtered out US outlier using a condition-based filter
 - Learned static vs condition-based filtering tradeoffs
+
+## Day 12 - US callout card
+- Built a Card visual showing the US total separately from the main comparison chart
+- Used a visual-level filter to isolate the outlier without distorting the main chart

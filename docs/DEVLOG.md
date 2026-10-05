@@ -228,7 +228,27 @@ Day 12 - add a Card visual showing the US total separately, then continue buildi
 
 ---
 
-## Day 12 - [Title]
+## Day 12 - US Callout Card
+**Date:** 5 October 2026
+
+**What I did:**
+Built a Card visual showing the US total trial count (28K) separately from the main bar chart, using a visual-level filter set to "Is" United States. This keeps the extreme outlier visible without letting it crush the readability of the comparison chart for the remaining countries.
+
+**Why I made that choice:**
+Following on from last session's plan - the standard, honest way to handle one value massively dwarfing everything else is to show it separately rather than hide or distort it with a log scale that isn't appropriate for bar charts.
+
+**What I learned:**
+Power BI automatically abbreviates large numbers on Card visuals (28,276 shown as "28K") by default - a Display units setting can switch this to the exact number if needed, but the abbreviation is standard, readable default behaviour, not an error.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 13 - add a text label explaining the US card, then continue building out the dashboard with the sponsor-level data.
+
+---
+
+## Day 13 - [Title]
 **Date:**
 
 **What I did:**
