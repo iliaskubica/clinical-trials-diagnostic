@@ -248,7 +248,27 @@ Day 13 - add a text label explaining the US card, then continue building out the
 
 ---
 
-## Day 13 - [Title]
+## Day 13 - Code Cleanup
+**Date:** 7 October 2026
+
+**What I did:**
+Went back through fetch_trials.py and cleaned up variable and column naming for clarity, reorganizing the tables to be more readable rather than adding new functionality.
+
+**Why I made that choice:**
+Clear, consistent naming matters for anyone else (or future me) reading the code - this project has grown quite a bit script-by-script, so it was worth a pass to tidy things up before adding more analysis on top.
+
+**What I learned:**
+
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 14 - add a text label explaining the US callout card, then continue building out the dashboard with the sponsor-level data.
+
+---
+
+## Day 14 - [Title]
 **Date:**
 
 **What I did:**

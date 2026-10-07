@@ -64,3 +64,6 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 ## Day 12 - US callout card
 - Built a Card visual showing the US total separately from the main comparison chart
 - Used a visual-level filter to isolate the outlier without distorting the main chart
+
+## Day 13 - Code cleanup
+- Renamed and reorganized variables/columns in fetch_trials.py for clarity
