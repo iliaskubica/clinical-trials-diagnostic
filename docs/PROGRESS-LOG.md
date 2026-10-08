@@ -67,3 +67,6 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 
 ## Day 13 - Code cleanup
 - Renamed and reorganized variables/columns in fetch_trials.py for clarity
+
+## Day 14 - Enrollment by phase
+- Added pandas groupby analysis of average enrollment by trial phase

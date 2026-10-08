@@ -268,7 +268,27 @@ Day 14 - add a text label explaining the US callout card, then continue building
 
 ---
 
-## Day 14 - [Title]
+## Day 14 - Enrollment by Phase
+**Date:** 8 October 2026
+
+**What I did:**
+Light session. Added a pandas groupby to calculate average trial enrollment by phase, the pandas equivalent of a SQL GROUP BY.
+
+**Why I made that choice:**
+Wanted to keep momentum on a short-on-time day with one small, real piece of analysis rather than skipping.
+
+**What I learned:**
+.groupby() splits a table into groups by a column and lets you summarise each group, mirroring SQL GROUP BY but done in pandas.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 15 - add a text label for the US card, then build the sponsor-level dashboard visuals.
+
+---
+
+## Day 15 - [Title]
 **Date:**
 
 **What I did:**
