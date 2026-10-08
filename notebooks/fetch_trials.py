@@ -91,6 +91,9 @@ print(trials_df.head())
 print("\nTrial status breakdown:")
 print(trials_df["status"].value_counts())
 
+print("\nAverage enrollment by phase:")
+print(trials_df.groupby("phase")["enrollment_count"].mean().round(0))
+
 print("\nMissing values per column:")
 print(trials_df.isnull().sum())
 
