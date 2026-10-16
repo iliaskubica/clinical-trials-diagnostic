@@ -30,6 +30,14 @@ Data is sourced from the ClinicalTrials.gov public API (v2). Fields containing r
 
 In progress, built iteratively, day by day. See [progress log](docs/progress-log.md) and [dev diary](docs/DEVLOG.md) for daily updates.
 
+**Completed so far:**
+- Pulled 4,100+ breast cancer clinical trials from the ClinicalTrials.gov API using cursor-based pagination
+- Extracted nested API data into two related SQL tables (trials and locations)
+- Wrote SQL joins, conditional aggregation, date arithmetic, window functions and subqueries
+- Exported country-level summary data for the dashboard
+
+**In progress:** Power BI dashboard (country-level view first, then sponsor-level)
+
 ## Roadmap
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for the full plan: objective, rationale, methodology, and anticipated challenges.

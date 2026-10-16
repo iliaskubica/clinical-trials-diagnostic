@@ -70,3 +70,6 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 
 ## Day 14 - Enrollment by phase
 - Added pandas groupby analysis of average enrollment by trial phase
+
+## Day 15 - README update
+- Updated the README status section to reflect completed work and current dashboard progress

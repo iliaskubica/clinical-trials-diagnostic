@@ -288,7 +288,27 @@ Day 15 - add a text label for the US card, then build the sponsor-level dashboar
 
 ---
 
-## Day 15 - [Title]
+## Day 15 - README Update
+**Date:** 16 October 2026
+
+**What I did:**
+Light session. Updated the project README so the Status section lists what is actually built so far (data pipeline, relational tables, SQL techniques, country-level export) and what is still in progress (the Power BI dashboard).
+
+**Why I made that choice:**
+The README had fallen behind the real state of the project. A recruiter reading it should see the SQL work immediately, rather than having to dig through the dev diary to find it.
+
+**What I learned:**
+Documentation drifts out of date quickly when the work moves faster than the write-up, and a short checkpoint like this stops that happening.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 16 - add a text label explaining the US callout card, then build the sponsor-level dashboard visuals.
+
+---
+
+## Day 16 - [Title]
 **Date:**
 
 **What I did:**
