@@ -308,7 +308,27 @@ Day 16 - add a text label explaining the US callout card, then build the sponsor
 
 ---
 
-## Day 16 - [Title]
+## Day 16 - Fixing an Aggregation Error
+**Date:** 17 October 2026
+
+**What I did:**
+On review, found that my country-level counts were wrong. COUNT(*) on the joined trials and locations tables counts trial-site rows, not trials, so a trial running at many sites was counted many times. This inflated the US to 28K "trials" in a dataset of only about 4,160, and made the termination rates site-weighted rather than trial-weighted. Rewrote three queries (trials per country, termination rate by country, and average duration by country) so each trial counts once per country, using COUNT(DISTINCT ...) and a subquery. Tested the new queries on a small dummy database first, then reran the full script and checked the outputs against the dataset total.
+
+**Why I made that choice:**
+A number that can't be true (more trials for one country than exist in the whole dataset) means the grain of the query is wrong. Better to fix it now than publish a dashboard built on it.
+
+**What I learned:**
+When you join a one-to-many relationship, COUNT(*) counts rows in the joined result, not entities in either table. DISTINCT counts each entity once. Sanity-checking an output against the size of the dataset catches this kind of error quickly, and testing a query on tiny dummy data confirms the logic before running it on the real thing.
+
+**What confused me / what I'd do differently:**
+The earlier Day 6 and Day 8 findings and the Day 12 US callout card used the inflated figures, so they need revisiting. The termination rate query also ranks countries by number of terminated trials rather than by rate, so the earlier claim that Australia had the highest rate was only true among the ten countries with the most terminations. Next time, sanity-check any count against the dataset total as soon as I write a join.
+
+**Next up:**
+Day 17 - refresh the Power BI data with the corrected counts, reassess whether the US still needs its own card, and decide whether to rank countries by termination rate instead of terminated count.
+
+---
+
+## Day 17 - [Title]
 **Date:**
 
 **What I did:**

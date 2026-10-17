@@ -110,7 +110,7 @@ print("\nBoth tables loaded into SQLite database: data/processed/trials.db")
 conn = sqlite3.connect("data/processed/trials.db")
 
 query = """
-SELECT locations.country, COUNT(*) AS trial_count
+SELECT locations.country, COUNT(DISTINCT locations.nct_id) AS trial_count
 FROM locations
 JOIN trials ON locations.nct_id = trials.nct_id
 GROUP BY locations.country
@@ -125,13 +125,13 @@ print(result)
 query2 = """
 SELECT 
     locations.country,
-    COUNT(*) AS total_trials,
-    SUM(CASE WHEN trials.status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+    COUNT(DISTINCT trials.nct_id) AS total_trials,
+    COUNT(DISTINCT CASE WHEN trials.status = 'TERMINATED' THEN trials.nct_id END) AS terminated_trials
 FROM locations
 JOIN trials ON locations.nct_id = trials.nct_id
 GROUP BY locations.country
 HAVING total_trials >= 50
-ORDER BY terminated_trials DESC
+ORDER BY 1.0 * terminated_trials / total_trials DESC
 LIMIT 10
 """
 
@@ -161,13 +161,17 @@ print("\nTop 10 sponsors by trial volume, with termination rate:")
 print(result3)
 
 query4 = """
-SELECT locations.country,
-       AVG(julianday(trials.completion_date) - julianday(trials.start_date)) AS avg_duration_days,
+SELECT country,
+       AVG(duration) AS avg_duration_days,
        COUNT(*) AS trial_count
-FROM locations
-JOIN trials ON locations.nct_id = trials.nct_id
-WHERE trials.completion_date IS NOT NULL AND trials.start_date IS NOT NULL
-GROUP BY locations.country
+FROM (
+    SELECT DISTINCT locations.country, trials.nct_id,
+           julianday(trials.completion_date) - julianday(trials.start_date) AS duration
+    FROM locations
+    JOIN trials ON locations.nct_id = trials.nct_id
+    WHERE trials.completion_date IS NOT NULL AND trials.start_date IS NOT NULL
+)
+GROUP BY country
 HAVING trial_count >= 50
 ORDER BY avg_duration_days DESC
 LIMIT 10

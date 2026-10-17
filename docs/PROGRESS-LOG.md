@@ -73,3 +73,9 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 
 ## Day 15 - README update
 - Updated the README status section to reflect completed work and current dashboard progress
+
+## Day 16 - Aggregation fix
+- Found that country-level counts were weighted by trial sites rather than trials
+- Fixed three queries (trials per country, termination rate, average duration) using COUNT(DISTINCT ...) and a subquery
+- Tested the fixes on dummy data and checked outputs against the dataset total
+- Noted that earlier findings and the Power BI data need refreshing
