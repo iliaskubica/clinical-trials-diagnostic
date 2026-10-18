@@ -132,7 +132,6 @@ JOIN trials ON locations.nct_id = trials.nct_id
 GROUP BY locations.country
 HAVING total_trials >= 50
 ORDER BY 1.0 * terminated_trials / total_trials DESC
-LIMIT 10
 """
 
 result2 = pd.read_sql(query2, conn)

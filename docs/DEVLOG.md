@@ -122,6 +122,8 @@ The actual JOIN syntax - matching rows across two tables on a shared column (nct
 **Next up:**
 Day 7 - explore the Australia termination-rate finding further, and start looking at sponsor-level patterns (e.g. which sponsors have the highest completion vs termination rates) using window functions.
 
+**Correction (Day 17):** the country figures above came from site-weighted counts, which were fixed on Day 16. Corrected figures: the US has 2,017 distinct trials; Ireland no longer ranks in the top 10 for trial duration (Hungary leads); Australia still has the highest termination rate (26.8%) but is not clearly different from the US.
+
 ---
 
 ## Day 7 - Sponsor-Level Trial Analysis
@@ -166,6 +168,7 @@ julianday() converts a date into a single number, making subtraction between two
 **Next up:**
 Day 9 - use the ranking to filter down to just the top 3 sponsors per class (a common window-function follow-up pattern), then start planning the Power BI dashboard for this project.
 
+**Correction (Day 17):** the country figures above came from site-weighted counts, which were fixed on Day 16. Corrected figures: the US has 2,017 distinct trials; Ireland no longer ranks in the top 10 for trial duration (Hungary leads); Australia still has the highest termination rate (26.8%) but is not clearly different from the US.
 ---
 
 ## Day 9 - Subqueries and Filtering Window Functions
@@ -245,6 +248,8 @@ Power BI automatically abbreviates large numbers on Card visuals (28,276 shown a
 
 **Next up:**
 Day 13 - add a text label explaining the US card, then continue building out the dashboard with the sponsor-level data.
+
+**Correction (Day 17):** the country figures above came from site-weighted counts, which were fixed on Day 16. Corrected figures: the US has 2,017 distinct trials; Ireland no longer ranks in the top 10 for trial duration (Hungary leads); Australia still has the highest termination rate (26.8%) but is not clearly different from the US.
 
 ---
 
@@ -328,7 +333,27 @@ Day 17 - refresh the Power BI data with the corrected counts, reassess whether t
 
 ---
 
-## Day 17 - [Title]
+## Day 17 - Re-ranking Countries by Termination Rate
+**Date:** 18 October 2026
+
+**What I did:**
+Re-ran the full pipeline after the aggregation fix and checked the output against the dataset total. The US dropped from about 28,000 site rows to 2,017 distinct trials, in a dataset of 4,201 trials, which is plausible (about 48% of trials have at least one US site). Changed the country termination query to rank by termination rate and removed the LIMIT, so the export now covers all 32 countries with 50+ trials.
+
+**Why I made that choice:**
+The old query ranked by number of terminations, so a country with a high rate but fewer trials could be missing from the results, and my earlier Australia claim was not actually proven.
+
+**What I learned:**
+ORDER BY decides which rows survive a LIMIT, so the ranking metric changes the findings, not just the order. Australia still has the highest rate (26.8%, 40 of 149 trials), so the finding survived the fix, but with that sample size the margin of error is roughly 7 percentage points, so it is not clearly different from the US (22.7%), Spain or Switzerland. The clearer pattern is at the low end: Turkey (2.9%) and Egypt (0%) are well below everyone else. Average duration by country also changed: Ireland, previously the longest at 3,300+ days, dropped out of the top 10, and Hungary now leads at about 2,440 days, so the earlier Ireland result was an artefact of site-weighting.
+
+**What confused me / what I'd do differently:**
+My Day 6, Day 8 and Day 12 entries quote figures from the faulty queries. I left them as written and added correction notes rather than rewriting history. Country rates may also reflect trial mix (sponsor type, phase) rather than anything about the country itself, which I haven't tested yet. A multinational trial also counts in every country where it has a site, so countries are not independent.
+
+**Next up:**
+Day 18 - test whether Turkey and Egypt's low termination rates are explained by trial mix (sponsor class and phase), then finish the country-level dashboard visuals.
+
+---
+
+## Day 18 - [Title]
 **Date:**
 
 **What I did:**

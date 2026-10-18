@@ -1,11 +1,33 @@
 country,total_trials,terminated_trials,termination_rate
-United States,28348,5897,20.8
-Spain,2850,528,18.5
-France,2577,424,16.5
-Italy,1695,248,14.6
-China,1391,248,17.8
-Australia,767,183,23.9
-United Kingdom,1304,169,13.0
-South Korea,933,169,18.1
-Canada,1139,156,13.7
-Belgium,761,135,17.7
+Australia,149,40,26.8
+Switzerland,86,22,25.6
+Austria,73,17,23.3
+United States,2017,458,22.7
+Spain,351,79,22.5
+France,429,92,21.4
+Poland,89,19,21.3
+Israel,76,16,21.1
+United Kingdom,238,48,20.2
+Japan,100,20,20.0
+Belgium,199,39,19.6
+Czechia,68,13,19.1
+Russia,91,17,18.7
+Argentina,59,11,18.6
+Hungary,66,12,18.2
+Singapore,61,11,18.0
+South Korea,200,36,18.0
+Canada,275,49,17.8
+Netherlands,132,23,17.4
+Taiwan,138,24,17.4
+Italy,258,44,17.1
+Hong Kong,53,9,17.0
+Portugal,61,10,16.4
+Denmark,80,13,16.2
+Brazil,101,13,12.9
+Mexico,63,8,12.7
+China,353,43,12.2
+Germany,218,23,10.6
+India,64,6,9.4
+Sweden,75,5,6.7
+Turkey (Türkiye),241,7,2.9
+Egypt,135,0,0.0

@@ -79,3 +79,9 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Fixed three queries (trials per country, termination rate, average duration) using COUNT(DISTINCT ...) and a subquery
 - Tested the fixes on dummy data and checked outputs against the dataset total
 - Noted that earlier findings and the Power BI data need refreshing
+
+## Day 17 - Re-ranking by termination rate
+- Re-ran the pipeline and verified the corrected counts (US now 2,017 trials of 4,201)
+- Ranked all 32 countries with 50+ trials by termination rate
+- Australia's finding survived the fix but is statistically weak; Turkey and Egypt are the clear low outliers
+- Added correction notes to earlier entries that used the faulty figures
