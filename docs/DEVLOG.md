@@ -353,19 +353,68 @@ Day 18 - test whether Turkey and Egypt's low termination rates are explained by 
 
 ---
 
-## Day 18 - [Title]
-**Date:**
+## Day 18 - Updating the Country Dashboard
+**Date:** 19 October 2026
+
 
 **What I did:**
+
+Refreshed the Power BI data using the corrected country summary export, then changed the existing country chart from total trial count to termination rate. The US now shows roughly 2,000 distinct trials rather than the previous 28K, reflecting the aggregation fix from Day 16. The dashboard is now using the corrected figures and comparing countries by termination rate rather than raw trial volume.
+
+
+**Why I made that choice:**
+
+The dashboard was still using the old data, so the corrected SQL results needed to be carried through into Power BI before the visuals could be trusted. Switching the country chart to termination rate also makes the comparison more useful: raw trial volume mostly shows where trials are concentrated, whereas termination rate helps identify differences in trial outcomes.
+
+
+**What I learned:**
+
+Refreshing Power BI updates the imported data from the source file, so changes made in the Python pipeline and SQL analysis do not automatically appear in an existing dashboard. Also reinforced that the metric used in a chart determines the question it answers - ranking countries by total trials and ranking them by termination rate can tell very different stories.
+
+
+**What confused me / what I'd do differently:**
+
+The original dashboard carried forward the same aggregation error as the SQL queries, which meant the visuals looked plausible but were based on the wrong counts. This is a reminder that fixing the analysis is only part of the job; the exported data and dashboard also need to be refreshed and checked before the results are presented.
+
+
+**Next up:**
+
+Day 19 - test whether Turkey and Egypt's low termination rates are explained by trial mix (sponsor class and phase), then continue finishing the country-level dashboard visuals.
+
+
+
+---
+
+
+
+## Day 19 - [Title]
+
+**Date:**
+
+
+
+**What I did:**
+
+
+
 
 
 **Why I made that choice:**
 
 
+
+
+
 **What I learned:**
 
 
+
+
+
 **What confused me / what I'd do differently:**
+
+
+
 
 
 **Next up:**
