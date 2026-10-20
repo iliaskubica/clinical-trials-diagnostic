@@ -387,34 +387,39 @@ Day 19 - test whether Turkey and Egypt's low termination rates are explained by 
 
 
 
-## Day 19 - [Title]
-
-**Date:**
-
-
+## Day 19 - Testing Whether Trial Mix Explains Turkey and Egypt
+**Date:** 20 October 2026
 
 **What I did:**
+Tested whether Turkey (2.9%, 7 of 243 trials) and Egypt (0%, 0 of 135) have low termination rates because of the kind of trials run there. Looked at their phase mix against the whole dataset, and at their sponsor class breakdown, using DISTINCT in a subquery so each trial counts once per country.
 
+**Why I made that choice:**
+A country-level rate can reflect the mix of trials rather than anything about the country. If most trials there are non-drug academic studies, a low rate may just reflect that.
 
+**What I learned:**
+Both countries have an unusual phase mix: 55% (Turkey) and 47% (Egypt) of trials are "NA" non-drug trials versus 36% overall, and they run almost no Phase 1 trials (0.4% and 3% versus 19% overall). But the rates are far lower than chance would produce: at the overall rate of about 15%, I'd expect around 20 terminations in Egypt and 37 in Turkey, and observed 0 and 7. I have not yet computed termination rate by phase, so I can't say how much the mix explains. I'm not claiming a cause. It could be mix, reporting differences, or both, and this data can't separate them.
 
+**What confused me / what I'd do differently:**
+My terminal output truncated the key columns in two tables, so I couldn't read the sponsor class results. Fix: set pandas display options at the top of the script. Also, the trial count moved from 4,201 to 4,208 between runs because each run re-pulls the live ClinicalTrials.gov registry, so figures shift slightly. A dated snapshot would make results reproducible.
+
+**Next up:**
+Day 20 - add termination rate by phase to finish the mix test, then finish the country-level dashboard visuals (title, caption, remove the stale US card).
+
+---
+
+## Day 20 - [Title]
+**Date:**
+
+**What I did:**
 
 
 **Why I made that choice:**
 
 
-
-
-
 **What I learned:**
 
 
-
-
-
 **What confused me / what I'd do differently:**
-
-
-
 
 
 **Next up:**

@@ -85,3 +85,15 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Ranked all 32 countries with 50+ trials by termination rate
 - Australia's finding survived the fix but is statistically weak; Turkey and Egypt are the clear low outliers
 - Added correction notes to earlier entries that used the faulty figures
+
+## Day 18 - Updating the Country Dashboard
+
+- Refreshed the Power BI data using the corrected country summary export
+- Changed the country chart from total trial count to termination rate
+- Confirmed the US count now shows roughly 2,000 distinct trials rather than the previous 28K
+- Dashboard now reflects the corrected country-level analysis
+
+## Day 19 - Trial mix test
+- Compared the phase mix of Turkey and Egypt against the whole dataset
+- Found both run far more non-drug trials and far fewer Phase 1 trials than average
+- Showed their termination rates are too low to be chance alone, but left the cause open pending a termination-rate-by-phase check

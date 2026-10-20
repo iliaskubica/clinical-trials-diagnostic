@@ -211,4 +211,54 @@ result6 = pd.read_sql(query6, conn)
 print("\nTop 3 sponsors per class:")
 print(result6)
 
+# Trial mix: does sponsor class or phase explain Turkey and Egypt's low termination rates?
+query7 = """
+SELECT sponsor_class,
+       COUNT(*) AS total_trials,
+       SUM(CASE WHEN status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM trials
+GROUP BY sponsor_class
+ORDER BY total_trials DESC
+"""
+
+result7 = pd.read_sql(query7, conn)
+result7["termination_rate"] = (result7["terminated_trials"] / result7["total_trials"] * 100).round(1)
+result7["share_of_all_trials"] = (result7["total_trials"] / result7["total_trials"].sum() * 100).round(1)
+print("\nTermination rate and share of trials by sponsor class (all countries):")
+print(result7)
+
+query8 = """
+SELECT country, sponsor_class,
+       COUNT(*) AS total_trials,
+       SUM(CASE WHEN status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM (
+    SELECT DISTINCT locations.country, trials.nct_id, trials.sponsor_class, trials.status
+    FROM locations
+    JOIN trials ON locations.nct_id = trials.nct_id
+    WHERE locations.country IN ('Turkey (Türkiye)', 'Egypt')
+)
+GROUP BY country, sponsor_class
+ORDER BY country, total_trials DESC
+"""
+
+result8 = pd.read_sql(query8, conn)
+print("\nSponsor class mix for Turkey and Egypt:")
+print(result8)
+
+query9 = """
+SELECT country, COALESCE(phase, 'MISSING') AS phase, COUNT(*) AS total_trials
+FROM (
+    SELECT DISTINCT locations.country, trials.nct_id, trials.phase
+    FROM locations
+    JOIN trials ON locations.nct_id = trials.nct_id
+    WHERE locations.country IN ('Turkey (Türkiye)', 'Egypt')
+)
+GROUP BY country, COALESCE(phase, 'MISSING')
+ORDER BY country, total_trials DESC
+"""
+
+result9 = pd.read_sql(query9, conn)
+print("\nPhase mix for Turkey and Egypt:")
+print(result9)
+
 conn.close()
