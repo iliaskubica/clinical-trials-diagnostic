@@ -97,3 +97,9 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Compared the phase mix of Turkey and Egypt against the whole dataset
 - Found both run far more non-drug trials and far fewer Phase 1 trials than average
 - Showed their termination rates are too low to be chance alone, but left the cause open pending a termination-rate-by-phase check
+
+## Day 20 - Trial mix test finished
+- Calculated termination rate by phase across all countries
+- Compared expected against observed terminations for Turkey and Egypt using their phase mix (indirect standardisation)
+- Concluded the phase mix does not explain their low rates
+- Finished the country-level chart in Power BI (title, caption, axis label)

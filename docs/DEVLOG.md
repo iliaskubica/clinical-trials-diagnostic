@@ -407,7 +407,27 @@ Day 20 - add termination rate by phase to finish the mix test, then finish the c
 
 ---
 
-## Day 20 - [Title]
+## Day 20 - Does Trial Mix Explain the Low Rates?
+**Date:** 23 October 2026
+
+**What I did:**
+Finished the trial mix test for Turkey (7 terminated of 243) and Egypt (0 of 135). Calculated termination rate by phase across the whole dataset, then worked out how many terminations each country would be expected to have if it matched the overall rate within each phase. Compared expected against observed. Also set pandas display options so wide tables no longer truncate, and tidied the country chart in Power BI (title, axis label, caption, removed the stale US card).
+
+**Why I made that choice:**
+Last session showed both countries run an unusual mix of trials, but that alone doesn't say whether the mix explains the low rates. Expected-versus-observed answers that directly.
+
+**What I learned:**
+This is a simple version of indirect standardisation: applying overall rates for each category to a group's own mix to get an expected count. Result: Egypt had 17.4 expected terminations versus 0 observed, while Turkey had 25 expected versus 7 observed. This suggests that phase mix alone does not explain the low termination rates. The sponsor class tables provide another comparison, showing whether differences in sponsor composition might help explain the gap. I’m not claiming a cause: reporting practices or other differences could also be involved, and this data cannot distinguish between them.
+
+**What confused me / what I'd do differently:**
+Figures shift slightly between runs because each run re-pulls the live registry (4,201 trials one day, 4,208 another), so the numbers here are as of this run. A dated snapshot would make results reproducible. Also, multinational trials count in every country where they have a site, so countries are not independent.
+
+**Next up:**
+Day 21 - build the sponsor-level dashboard views, then write the findings briefing for this project.
+
+---
+
+## Day 21 - [Title]
 **Date:**
 
 **What I did:**

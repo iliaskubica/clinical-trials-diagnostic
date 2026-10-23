@@ -5,6 +5,9 @@ import time
 import pandas as pd
 import requests
 
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", 200)
+
 BASE_URL = "https://clinicaltrials.gov/api/v2/studies"
 
 params = {
@@ -260,5 +263,29 @@ ORDER BY country, total_trials DESC
 result9 = pd.read_sql(query9, conn)
 print("\nPhase mix for Turkey and Egypt:")
 print(result9)
+
+query10 = """
+SELECT COALESCE(phase, 'MISSING') AS phase,
+       COUNT(*) AS total_trials,
+       SUM(CASE WHEN status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM trials
+GROUP BY COALESCE(phase, 'MISSING')
+ORDER BY total_trials DESC
+"""
+
+result10 = pd.read_sql(query10, conn)
+result10["termination_rate"] = (result10["terminated_trials"] / result10["total_trials"] * 100).round(1)
+print("\nTermination rate by phase (all countries):")
+print(result10)
+
+# Expected terminations in Turkey and Egypt if each phase had the overall termination rate for that phase
+phase_rates = result10[["phase", "termination_rate"]].copy()
+phase_rates["rate"] = phase_rates["termination_rate"] / 100
+mix = result9.merge(phase_rates[["phase", "rate"]], on="phase")
+mix["expected_terminated"] = mix["total_trials"] * mix["rate"]
+expected = mix.groupby("country")["expected_terminated"].sum().round(1)
+observed = result2.set_index("country").loc[["Egypt", "Turkey (Türkiye)"], "terminated_trials"]
+print("\nExpected vs observed terminations, given each country's phase mix:")
+print(pd.DataFrame({"expected_given_phase_mix": expected, "observed": observed}))
 
 conn.close()

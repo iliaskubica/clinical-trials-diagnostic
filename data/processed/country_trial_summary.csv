@@ -1,9 +1,9 @@
 country,total_trials,terminated_trials,termination_rate
 Australia,149,40,26.8
-Switzerland,87,22,25.3
-Austria,73,17,23.3
-United States,2021,458,22.7
-Spain,351,79,22.5
+Switzerland,88,23,26.1
+Austria,74,18,24.3
+United States,2023,458,22.6
+Spain,352,79,22.4
 France,429,92,21.4
 Poland,89,19,21.3
 Israel,76,16,21.1
@@ -23,11 +23,11 @@ Italy,258,44,17.1
 Hong Kong,53,9,17.0
 Portugal,61,10,16.4
 Denmark,80,13,16.2
-Brazil,101,13,12.9
-Mexico,63,8,12.7
+Brazil,102,13,12.7
+Mexico,64,8,12.5
 China,353,43,12.2
-Germany,218,23,10.6
+Germany,219,24,11.0
 India,64,6,9.4
-Sweden,75,5,6.7
-Turkey (Türkiye),243,7,2.9
+Sweden,76,5,6.6
+Turkey (Türkiye),244,7,2.9
 Egypt,135,0,0.0
