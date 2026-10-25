@@ -103,3 +103,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Compared expected against observed terminations for Turkey and Egypt using their phase mix (indirect standardisation)
 - Concluded the phase mix does not explain their low rates
 - Finished the country-level chart in Power BI (title, caption, axis label)
+
+## Day 21 - Data snapshot and sponsor dashboard
+- Added a REFETCH flag so the pipeline loads a saved snapshot, making results reproducible
+- Exported a sponsor summary (20+ trials) and built the sponsor-level chart in Power BI
+- Documented the snapshot approach in the README

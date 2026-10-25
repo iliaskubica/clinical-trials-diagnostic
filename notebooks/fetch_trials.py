@@ -1,4 +1,5 @@
 import json
+import os
 import sqlite3
 import time
 
@@ -17,33 +18,39 @@ params = {
     "pageSize": 100,
 }
 
-all_trials = []
-page_count = 0
+RAW_PATH = "data/raw/trials_raw.json"
+REFETCH = False  # set to True only when you want fresh data from the API
 
-while True:
-    response = requests.get(BASE_URL, params=params)
-    data = response.json()
-    
-    studies = data.get("studies", [])
-    all_trials.extend(studies)
-    
-    page_count += 1
-    print(f"Fetched page {page_count}, total trials so far: {len(all_trials)}")
-    
-    next_token = data.get("nextPageToken")
-    if not next_token:
-        break
-    
-    params["pageToken"] = next_token
-    time.sleep(0.5)
+if REFETCH or not os.path.exists(RAW_PATH):
+    all_trials = []
+    page_count = 0
 
-with open("data/raw/trials_raw.json", "w") as f:
-    json.dump(all_trials, f)
-print("Saved raw trial data to data/raw/trials_raw.json")
+    while True:
+        response = requests.get(BASE_URL, params=params)
+        data = response.json()
 
-print(f"\nTotal trials collected: {len(all_trials)}")
-print("\nFirst trial's raw structure (just to see what we're working with):")
-print(all_trials[0])
+        studies = data.get("studies", [])
+        all_trials.extend(studies)
+
+        page_count += 1
+        print(f"Fetched page {page_count}, total trials so far: {len(all_trials)}")
+
+        next_token = data.get("nextPageToken")
+        if not next_token:
+            break
+
+        params["pageToken"] = next_token
+        time.sleep(0.5)
+
+    with open(RAW_PATH, "w") as f:
+        json.dump(all_trials, f)
+    print(f"Fetched fresh data and saved it to {RAW_PATH}")
+else:
+    with open(RAW_PATH) as f:
+        all_trials = json.load(f)
+    print(f"Loaded {len(all_trials)} trials from saved snapshot {RAW_PATH}")
+
+print(f"\nTotal trials: {len(all_trials)}")
 
 records = []
 
@@ -287,5 +294,37 @@ expected = mix.groupby("country")["expected_terminated"].sum().round(1)
 observed = result2.set_index("country").loc[["Egypt", "Turkey (Türkiye)"], "terminated_trials"]
 print("\nExpected vs observed terminations, given each country's phase mix:")
 print(pd.DataFrame({"expected_given_phase_mix": expected, "observed": observed}))
+
+query_sponsors = """
+SELECT sponsor_name,
+       sponsor_class,
+       COUNT(*) AS total_trials,
+       SUM(CASE WHEN status = 'TERMINATED' THEN 1 ELSE 0 END) AS terminated_trials
+FROM trials
+GROUP BY sponsor_name, sponsor_class
+HAVING total_trials >= 20
+ORDER BY total_trials DESC
+"""
+
+sponsor_summary = pd.read_sql(query_sponsors, conn)
+sponsor_summary["termination_rate"] = (sponsor_summary["terminated_trials"] / sponsor_summary["total_trials"] * 100).round(1)
+
+class_labels = {
+    "INDUSTRY": "Industry",
+    "OTHER": "Academic / hospital / other",
+    "NIH": "NIH",
+    "NETWORK": "Research network",
+    "OTHER_GOV": "Other government",
+    "FED": "Federal",
+    "INDIV": "Individual",
+    "UNKNOWN": "Unknown",
+}
+sponsor_summary["sponsor_type"] = sponsor_summary["sponsor_class"].map(class_labels).fillna(sponsor_summary["sponsor_class"])
+
+print("\nSponsor summary (20+ trials):")
+print(sponsor_summary)
+
+sponsor_summary.to_csv("data/processed/sponsor_trial_summary.csv", index=False)
+print("\nSaved sponsor summary for Power BI: data/processed/sponsor_trial_summary.csv")
 
 conn.close()

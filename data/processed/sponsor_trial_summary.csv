@@ -1,0 +1,24 @@
+sponsor_name,sponsor_class,total_trials,terminated_trials,termination_rate,sponsor_type
+Novartis Pharmaceuticals,INDUSTRY,75,16,21.3,Industry
+National Cancer Institute (NCI),NIH,74,14,18.9,NIH
+M.D. Anderson Cancer Center,OTHER,70,21,30.0,Academic / hospital / other
+Pfizer,INDUSTRY,68,12,17.6,Industry
+Memorial Sloan Kettering Cancer Center,OTHER,67,2,3.0,Academic / hospital / other
+Mayo Clinic,OTHER,64,13,20.3,Academic / hospital / other
+AstraZeneca,INDUSTRY,60,2,3.3,Industry
+Hoffmann-La Roche,INDUSTRY,60,9,15.0,Industry
+Dana-Farber Cancer Institute,OTHER,58,8,13.8,Academic / hospital / other
+Fudan University,OTHER,43,0,0.0,Academic / hospital / other
+Ohio State University Comprehensive Cancer Center,OTHER,33,0,0.0,Academic / hospital / other
+Washington University School of Medicine,OTHER,28,11,39.3,Academic / hospital / other
+UNC Lineberger Comprehensive Cancer Center,OTHER,27,5,18.5,Academic / hospital / other
+Duke University,OTHER,24,5,20.8,Academic / hospital / other
+Abramson Cancer Center at Penn Medicine,OTHER,23,1,4.3,Academic / hospital / other
+Northwestern University,OTHER,23,3,13.0,Academic / hospital / other
+Institut Curie,OTHER,22,6,27.3,Academic / hospital / other
+Massachusetts General Hospital,OTHER,22,1,4.5,Academic / hospital / other
+MedSIR,OTHER,22,4,18.2,Academic / hospital / other
+City of Hope Medical Center,OTHER,21,0,0.0,Academic / hospital / other
+H. Lee Moffitt Cancer Center and Research Institute,OTHER,21,3,14.3,Academic / hospital / other
+UNICANCER,OTHER,20,3,15.0,Academic / hospital / other
+"University of Wisconsin, Madison",OTHER,20,6,30.0,Academic / hospital / other

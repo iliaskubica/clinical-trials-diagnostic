@@ -427,7 +427,27 @@ Day 21 - build the sponsor-level dashboard views, then write the findings briefi
 
 ---
 
-## Day 21 - [Title]
+## Day 21 - Data Snapshot and Sponsor Dashboard
+**Date:** 25 October 2026
+
+**What I did:**
+Fixed a reproducibility problem: every run re-pulled the live registry, so counts drifted between runs and each run took minutes. Added a REFETCH flag so the script loads a saved snapshot by default and only calls the API when I choose. Removed the large raw printout. Exported a sponsor summary (sponsors with 20+ trials, termination rate, sponsor type) and built a sponsor-level bar chart in Power BI with sample size in the tooltip.
+
+**Why I made that choice:**
+Results that change between runs can't be written up reliably, and I need stable numbers before writing the findings briefing. A 20-trial minimum keeps the sponsor rates from resting on tiny samples.
+
+**What I learned:**
+An if/else on a flag, plus os.path.exists, lets a script choose between fetching and loading. Freezing the data is basic reproducibility practice. Indentation decides what belongs inside the if block, so the whole fetch loop had to move one level in. The sponsor chart shows a large spread. I'm not explaining why, because the data can't say.
+
+**What confused me / what I'd do differently:**
+Sponsor rates rest on 20 to 75 trials each, so individual rates carry real uncertainty, and trials are counted under their lead sponsor only.
+
+**Next up:**
+Day 22 - write the findings briefing for this project, pulling together the country and sponsor results.
+
+---
+
+## Day 22 - [Title]
 **Date:**
 
 **What I did:**

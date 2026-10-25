@@ -38,6 +38,8 @@ In progress, built iteratively, day by day. See [progress log](docs/progress-log
 
 **In progress:** Power BI dashboard (country-level view first, then sponsor-level)
 
+**Data note:** analysis runs on a saved snapshot of ClinicalTrials.gov pulled in October 2026 (the raw file is too large for GitHub, so it is excluded from the repo). Set `REFETCH = True` in `notebooks/fetch_trials.py` to pull fresh data; figures will shift slightly because the registry updates continuously.
+
 ## Roadmap
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for the full plan: objective, rationale, methodology, and anticipated challenges.
