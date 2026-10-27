@@ -447,7 +447,27 @@ Day 22 - write the findings briefing for this project, pulling together the coun
 
 ---
 
-## Day 22 - [Title]
+## Day 22 - Completing the Dashboard
+**Date:** 27 October 2026
+
+**What I did:**
+Added the phase summary and country duration analysis exports to the Python script. Finished building the four-chart Power BI dashboard, covering termination rates by country, lead sponsor and trial phase, plus average trial duration against termination rate by country.
+
+**Why I made that choice:**
+I wanted to expand the dashboard beyond country and sponsor comparisons to investigate whether trial phase and duration reveal further patterns in termination rates.
+
+**What I learned:**
+Adding different views helps explore the data from multiple angles, but observed relationships do not establish causation.
+
+**What confused me / what I'd do differently:**
+The dashboard is built, but I still need to capture a screenshot and add it to the repository README to make the results visible on the project front page.
+
+**Next up:**
+Day 23 - Capture the dashboard screenshot, update the README, and prepare the one-page findings briefing.
+
+---
+
+## Day 23 - [Title]
 **Date:**
 
 **What I did:**

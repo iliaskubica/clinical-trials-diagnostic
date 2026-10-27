@@ -327,4 +327,40 @@ print(sponsor_summary)
 sponsor_summary.to_csv("data/processed/sponsor_trial_summary.csv", index=False)
 print("\nSaved sponsor summary for Power BI: data/processed/sponsor_trial_summary.csv")
 
+# Export 1: termination rate by phase
+phase_summary = result10.copy()
+phase_labels = {
+    "EARLY_PHASE1": "Early Phase 1",
+    "PHASE1": "Phase 1",
+    "PHASE2": "Phase 2",
+    "PHASE3": "Phase 3",
+    "PHASE4": "Phase 4",
+    "NA": "Not applicable (non-drug)",
+    "MISSING": "Phase not reported",
+}
+phase_summary["phase_label"] = phase_summary["phase"].map(phase_labels).fillna(phase_summary["phase"])
+phase_summary.to_csv("data/processed/phase_trial_summary.csv", index=False)
+print("\nSaved phase summary: data/processed/phase_trial_summary.csv")
+
+# Export 2: average trial duration against termination rate, by country
+query_duration = """
+SELECT country, AVG(duration) AS avg_duration_days
+FROM (
+    SELECT DISTINCT locations.country, trials.nct_id,
+           julianday(trials.completion_date) - julianday(trials.start_date) AS duration
+    FROM locations
+    JOIN trials ON locations.nct_id = trials.nct_id
+    WHERE trials.completion_date IS NOT NULL AND trials.start_date IS NOT NULL
+)
+GROUP BY country
+"""
+duration_df = pd.read_sql(query_duration, conn)
+country_detail = result2.merge(duration_df, on="country")
+country_detail["avg_duration_years"] = (country_detail["avg_duration_days"] / 365.25).round(1)
+country_detail.to_csv("data/processed/country_duration_vs_termination.csv", index=False)
+print("Saved country duration summary: data/processed/country_duration_vs_termination.csv")
+
+duration_corr = country_detail["avg_duration_years"].corr(country_detail["termination_rate"])
+print(f"\nCorrelation between average trial duration and termination rate across countries: {duration_corr:.2f}")
+
 conn.close()

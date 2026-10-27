@@ -1,0 +1,8 @@
+phase,total_trials,terminated_trials,termination_rate,phase_label
+NA,1536,119,7.7,Not applicable (non-drug)
+MISSING,930,69,7.4,Phase not reported
+PHASE1,716,205,28.6,Phase 1
+PHASE2,662,177,26.7,Phase 2
+PHASE3,230,43,18.7,Phase 3
+EARLY_PHASE1,73,13,17.8,Early Phase 1
+PHASE4,70,9,12.9,Phase 4

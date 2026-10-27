@@ -108,3 +108,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Added a REFETCH flag so the pipeline loads a saved snapshot, making results reproducible
 - Exported a sponsor summary (20+ trials) and built the sponsor-level chart in Power BI
 - Documented the snapshot approach in the README
+
+## Day 22 - Dashboard Completed
+- Added phase summary and country duration analysis exports to the Python script
+- Built a four-chart Power BI dashboard covering country, sponsor, phase and duration comparisons
+
