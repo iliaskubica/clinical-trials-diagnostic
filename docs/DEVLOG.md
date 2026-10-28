@@ -467,19 +467,24 @@ Day 23 - Capture the dashboard screenshot, update the README, and prepare the on
 
 ---
 
-## Day 23 - [Title]
-**Date:**
+## Day 23 - Dashboard Refinements
+**Date:** 28 October 2026
 
 **What I did:**
+Made several changes to the four-chart Power BI dashboard, adjusting the layout and improving how the results are presented. The dashboard still needs a final round of fixes, including changing the phase chart from a pie chart to a column chart, improving labels and adding captions.
 
 
 **Why I made that choice:**
+I wanted the dashboard to communicate the findings clearly and avoid misleading visualisations before publishing it to GitHub.
 
 
 **What I learned:**
+The choice of chart matters as much as the underlying data. Termination rates should be compared directly rather than shown as slices of a whole.
 
 
 **What confused me / what I'd do differently:**
+I expected to finish the dashboard today, but making changes revealed a few more presentation issues. Rather than upload an unfinished version, I'll finish the remaining adjustments first.
 
 
 **Next up:**
+Day 24 - Finalise the dashboard, capture a screenshot, update the README and push the finished project to GitHub.
