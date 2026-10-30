@@ -31,14 +31,22 @@ Data is sourced from the ClinicalTrials.gov public API (v2). Fields containing r
 In progress, built iteratively, day by day. See [progress log](docs/progress-log.md) and [dev diary](docs/DEVLOG.md) for daily updates.
 
 **Completed so far:**
-- Pulled 4,100+ breast cancer clinical trials from the ClinicalTrials.gov API using cursor-based pagination
+- Pulled 4,200+ breast cancer clinical trials from the ClinicalTrials.gov API using cursor-based pagination
 - Extracted nested API data into two related SQL tables (trials and locations)
 - Wrote SQL joins, conditional aggregation, date arithmetic, window functions and subqueries
-- Exported country-level summary data for the dashboard
+- Found and fixed a counting error (site rows counted as trials) and corrected the earlier findings
+- Tested whether trial mix explains the low termination rates in Turkey and Egypt
+- Built a four-chart Power BI dashboard: termination rate by country, by lead sponsor and by trial phase, plus trial duration against termination rate by country
 
-**In progress:** Power BI dashboard (country-level view first, then sponsor-level)
+**In progress:** one-page findings briefing
 
 **Data note:** analysis runs on a saved snapshot of ClinicalTrials.gov pulled in October 2026 (the raw file is too large for GitHub, so it is excluded from the repo). Set `REFETCH = True` in `notebooks/fetch_trials.py` to pull fresh data; figures will shift slightly because the registry updates continuously.
+
+## Dashboard
+
+![Dashboard overview](dashboard/dashboard_overview.png)
+
+Four views of breast cancer trial termination (trials completed since 2019). The full interactive file is `dashboard/clinical_trials_dashboard.pbix` and opens in Power BI Desktop.
 
 ## Roadmap
 

@@ -488,3 +488,40 @@ I expected to finish the dashboard today, but making changes revealed a few more
 
 **Next up:**
 Day 24 - Finalise the dashboard, capture a screenshot, update the README and push the finished project to GitHub.
+
+## Day 24 - Dashboard Polish and Shipping
+**Date:** 30 October 2026
+
+**What I did:**
+Finished the four-chart dashboard and put it in the repo. Replaced the phase pie chart with a column chart, because termination rates are not parts of a whole and a pie implied they were. Fixed the scatter (title, axes, clipped point), thickened the sponsor bars and added data labels, and wrote a caption for each chart. Saved the .pbix and a screenshot into the dashboard folder and updated the README.
+
+**Why I made that choice:**
+A pie chart on rates is a standard chart-choice mistake that a data person would notice immediately. The front page of the repo is what a recruiter sees first, so the dashboard needed to be readable at a glance, with each chart explaining itself.
+
+**What I learned:**
+Chart type has to match the data. Rates compare across categories, so bars or columns fit, while pies suit shares that sum to a whole. Also, the two most important sponsor values were hidden behind a scrollbar, so what appears in a screenshot has to be checked, not assumed.
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**
+Day 24 - write the one-page findings briefing, using the country, sponsor and trial mix results.
+
+---
+
+## Day 25 - [Title]
+**Date:**
+
+**What I did:**
+
+
+**Why I made that choice:**
+
+
+**What I learned:**
+
+
+**What confused me / what I'd do differently:**
+
+
+**Next up:**

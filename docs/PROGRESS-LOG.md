@@ -113,3 +113,11 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Added phase summary and country duration analysis exports to the Python script
 - Built a four-chart Power BI dashboard covering country, sponsor, phase and duration comparisons
 
+## Day 23 - Dashboard Refinements
+- Made several layout and presentation changes to the four-chart Power BI dashboard
+- Identified remaining fixes to chart types, labels and captions before publishing
+
+## Day 24 - Dashboard shipped
+- Replaced the phase pie chart with a column chart and polished the other three charts
+- Added a caption to each chart
+- Saved the Power BI file and screenshot into the repo and updated the README
