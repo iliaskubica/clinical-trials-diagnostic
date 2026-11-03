@@ -121,3 +121,8 @@ Daily build log for the Oncology Clinical Trials Diagnostic project.
 - Replaced the phase pie chart with a column chart and polished the other three charts
 - Added a caption to each chart
 - Saved the Power BI file and screenshot into the repo and updated the README
+
+## Day 25 - Findings briefing
+- Wrote and built the one-page findings briefing as a PDF
+- Quantified how much trial phase mix explains Turkey's and Egypt's low termination rates (about 40% and 15%)
+- Project complete against the original roadmap

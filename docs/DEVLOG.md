@@ -509,19 +509,22 @@ Day 24 - write the one-page findings briefing, using the country, sponsor and tr
 
 ---
 
-## Day 25 - [Title]
-**Date:**
+## Day 25 - Findings Briefing
+**Date:** 3 November 2026
 
 **What I did:**
-
+Wrote the one-page findings briefing for this project from the final numbers (4,217 trials in the saved snapshot). Four findings: trial phase and sponsor type drive termination far more than country does; Turkey and Egypt look low but trial mix explains only part of it; sponsors with similar volume differ widely; and longer-running countries terminate more (correlation 0.55). Built it as a PDF in the same format as my first project's briefing.
 
 **Why I made that choice:**
-
+The briefing turns the dashboard into conclusions someone can act on, and it forced me to state each finding at the strength the data supports.
 
 **What I learned:**
-
+Applying the overall termination rate for each phase to Turkey's and Egypt's phase mix gives 25 and 17 expected terminations, against 7 and 0 observed. Compared with 37 and 20 at the overall rate, phase mix explains roughly 40% of Turkey's shortfall and about 15% of Egypt's. The larger gap is in sponsor type: neither country has a terminated academic or hospital trial (0 of 303, about 36 expected). So the mix matters but does not close the gap, and the data cannot say why.
 
 **What confused me / what I'd do differently:**
-
+Some rows in my pasted terminal output ran together, so I cross-checked the counts against the rates and the sponsor class table before using them. I also haven't tested whether phase mix explains the sponsor gaps (such as M.D. Anderson against Memorial Sloan Kettering), or whether the duration correlation holds without Turkey and Egypt. Both are listed as limits rather than claimed.
 
 **Next up:**
+Project complete against the original roadmap. Possible follow-ups: test the sponsor gaps for phase mix, and rerun the duration correlation without Turkey and Egypt.
+
+---
